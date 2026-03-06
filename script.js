@@ -110,7 +110,7 @@ function PersonConstructor(name, age) {
 // Professor    — успадковує Person + teaches, grade()
 // Student      — успадковує Person + year
 
-
+/*
 class Animal {
     speak() {
       console.log("Якийсь звук тварини");
@@ -130,7 +130,7 @@ class Animal {
   }
   
   const animals = [new Animal(), new Dog(), new Cat()];
-  
+  */
 //   animals.forEach(animal => animal.speak());
   // Якийсь звук тварини
   // Гав!
@@ -176,3 +176,46 @@ class Car {
   
 
   // КЛАСИ У JAVASCRIPT
+  console.log("Let's start")
+
+  class PersonGeneral {
+    name; // оголошення властивості (необов'язкове, але корисне для читабельності)
+
+    constructor(name) {
+    this.name = name;
+    }
+
+    introduceSelf() {
+    console.log(`Привіт! Я — ${this.name}`);
+    }
+  }
+
+  const giles = new PersonGeneral("Джайлс");
+
+// class Animal {
+//   sleep(){
+//     console.log('Хрррр...')
+//   }
+// }
+
+// const spot = new Animal();
+
+class Professor extends PersonGeneral {
+  teaches;
+
+  constructor(name, teaches) {
+    super(name); // викликаємо конструктор батьківського класу!
+    this.teaches = teaches
+  }
+
+  introduceSelf() {
+    console.log(`Мене звати ${this.name}, і я буду вашим викладачем ${this.teaches}.`)
+  }
+
+  grade(paper) {
+    const grade = Math.floor(Math.random()*(5-1)+1)
+    console.log(grade)
+  }
+}
+
+const walsh = new Professor("Волш", "Психологія")
